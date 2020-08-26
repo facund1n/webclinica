@@ -1,1 +1,19 @@
+.color1 {
+  background-color: #379cd2;
+}
+.fondo1 {
+  background-image: linear-gradient(45deg, #379cd2, #4cb1e7);
+}
+.boton1 {
+  border-radius: 30px;
+  background-color: white;
+  color: #4cb1e7;
+}
+.margen1 {
+  margin: 0% 10% 0% 30%;
+}
 
+.boton1:hover {
+  background-color: gainsboro;
+  color: black;
+}
