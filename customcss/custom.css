@@ -9,11 +9,30 @@
   background-color: white;
   color: #4cb1e7;
 }
-.margen1 {
-  margin: 0% 10% 0% 30%;
+
+.boton2{
+background-color: #5fbfe5;
+border-radius: 30px;
+color: white;
 }
+
+.boton3{
+  background-color: white;
+  border-radius: 30px;
+  color: black;
+
+  }
 
 .boton1:hover {
   background-color: gainsboro;
   color: black;
 }
+
+.boton2:hover {
+  background-color: #5cb7db;
+  color: white;
+}
+
+.boton3:hover {
+  background-color: #5cb7db;
+  color: white;
