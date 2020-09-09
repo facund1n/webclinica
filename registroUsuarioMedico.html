@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>registracion</title>
+    <meta name="author" content="grupo-6" />
+    <meta name="keywords" content="clinica, salud" />
+    <link rel="stylesheet" href="./customcss/logincustom.css" />
+    <link rel="stylesheet" href="./bootstrap/css/bootstrap.min.css" />
+  </head>
+
+  <body class="body1">
+    <div id="formAzul" class="formAzul">
+      <nav class="navbar navbar-expand-lg navbar-dark color1">
+        <a class="navbar-brand" href="#"></a>
+        <img
+          src="./img index/logo.png"
+          class="m-2"
+          width="180px"
+          height="30px"
+        />
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item active">
+            <button class="toggle" id="cambiarAprofesionales">
+              Cambiar a Profesionales
+            </button>
+          </li>
+        </ul>
+      </nav>
+
+      <div class="container fondoForm p-5 my-2">
+        <div class="row">
+          <div class="col">
+            <p class="display-4">
+              Crea tu usuario para poder acceder a los Turnos Online:
+            </p>
+            <form>
+              <div class="form-group">
+                <label for="userPatient"
+                  >Ingrese DNI <b>(será utilizado como USUARIO)</b>:
+                </label>
+                <input
+                  type="number"
+                  class="form-control"
+                  id="userPatient"
+                  required
+                />
+                <small id="emailHelp" class="form-text text-muted"
+                  >Ingrese DNI sin puntos.</small
+                >
+              </div>
+
+              <div class="form-group">
+                <label for="userName">Ingrese Nombre y Apellido:</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="userName"
+                  required
+                />
+              </div>
+
+              <div class="form-group">
+                <label for="userPassword">Contraseña:</label>
+                <input
+                  type="password"
+                  class="form-control"
+                  id="userPassword"
+                  required
+                />
+              </div>
+
+              <div class="form-group">
+                <label for="userPasswordValidation">Repita contraseña:</label>
+                <input
+                  type="password"
+                  class="form-control"
+                  id="userPasswordValidation"
+                  required
+                />
+              </div>
+              <div class="form-group">
+                <label for="fechaNacimiento">Fecha de nacimiento: </label>
+                <input type="date" id="date" />
+              </div>
+              <div class="form-group form-check">
+                <input
+                  type="checkbox"
+                  class="form-check-input"
+                  id="userFecha"
+                />
+                <label
+                  class="form-check-label"
+                  for="exampleCheck1"
+                  id="checkbox"
+                  >Acepto los <a href="#">Términos y Condiciones</a>
+                </label>
+              </div>
+
+              <button type="submit" class="btn btn-primary">
+                Crear Usuario
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- FORM MEDICOS -->
+    <div id="formVerde" class="formVerde">
+      <nav class="navbar navbar-expand-lg navbar-dark color2">
+        <a class="navbar-brand" href="#"></a>
+        <img
+          src="./img index/logo.png"
+          class="m-2"
+          width="180px"
+          height="30px"
+        />
+
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item active">
+            <button class="toggle" id="cambiarApacientes">
+              Cambiar a Pacientes
+            </button>
+          </li>
+        </ul>
+      </nav>
+
+      <div class="container fondoFormmedic p-5 my-2" id="formVerde">
+        <div class="row">
+          <div class="col">
+            <p class="display-4">
+              Profesionales: Crea tu usuario para acceder al sistema
+            </p>
+
+            <form>
+              <div class="form-group">
+                <label for="userMedic">Legajo:</label>
+                <input
+                  type="number"
+                  class="form-control"
+                  id="userMedic"
+                  required
+                />
+              </div>
+
+              <div class="form-group">
+                <label for="Contraseña">Contraseña:</label>
+                <input
+                  type="password"
+                  class="form-control"
+                  id="medicPassword"
+                  required
+                />
+              </div>
+
+              <div class="form-group">
+                <label for="Repita Contraseña">Repita Contraseña</label>
+                <input
+                  type="password"
+                  class="form-control"
+                  id="medicPasswordValidation"
+                  required
+                />
+              </div>
+
+              <button type="submit" class="btn btn-success">
+                Crear Usuario
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script
+      src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+      integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+      integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+      integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
+      crossorigin="anonymous"
+    ></script>
+    <script src="./registroUsuarioMedico.js"></script>
+  </body>
+</html>
