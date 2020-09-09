@@ -1,0 +1,27 @@
+.body1 {
+  background-image: url("https://cavespringvet.com/wp-content/uploads/2017/12/background.png");
+}
+
+.color1 {
+  background-color: rgb(55, 156, 210);
+}
+
+.color2 {
+  background-color: rgb(0, 151, 38);
+}
+
+.fondoForm {
+  background-color: rgba(55, 156, 210, 10%);
+  border-radius: 10px;
+  padding: 10px;
+}
+
+.fondoFormmedic {
+  background-color: rgba(55, 210, 89, 0.1);
+  border-radius: 10px;
+  padding: 10px;
+}
+
+footer {
+  background-color: rgb(55, 35, 75);
+}
