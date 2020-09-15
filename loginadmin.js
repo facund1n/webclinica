@@ -31,7 +31,7 @@ const validacionAdmin = document
     if (admin.verificoAdmin()) {
       alert("Bienvenido Admin");
       localStorage.setItem("adminLogOn", true);
-      window.location = "http://127.0.0.1:5500/administracion.html";
+      window.location = "http://127.0.0.1:5500/sistemavalidacion.html";
     } else {
       alert("Admin no existente.");
       localStorage.setItem("adminLogOn", false);
