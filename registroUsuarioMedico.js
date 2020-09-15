@@ -16,7 +16,8 @@ document
     document.getElementById("formVerde").style.display = "none";
   });
 
-var listado = [];
+var listadoPaciente = [];
+var listadoMedico = [];
 
 class Paciente {
   constructor(tipo, user, nombre, password, fechaNacimiento, validado) {
@@ -118,9 +119,12 @@ let creacionPaciente = document
 
     function agregarAlocalStorage() {
       if (verifPassword == true && verifCheckbox == true) {
-        listado.push(paciente);
+        listadoPaciente.push(paciente);
 
-        localStorage.setItem("listado", JSON.stringify(listado));
+        localStorage.setItem(
+          "listadoPaciente",
+          JSON.stringify(listadoPaciente)
+        );
 
         alert("Bienvenido, un Administrador Validará su cuenta en breve...");
         window.location = "http://127.0.0.1:5500/index.html";
@@ -155,9 +159,9 @@ let creacionMedic = document
 
     function agregarMediclocalStorage() {
       if (verifPasswordMedic == true) {
-        listado.push(medico);
+        listadoMedico.push(medico);
 
-        localStorage.setItem("listado", JSON.stringify(listado));
+        localStorage.setItem("listadoMedico", JSON.stringify(listadoMedico));
 
         alert("Bienvenido, un Administrador Validará su cuenta en breve...");
         window.location = "http://127.0.0.1:5500/index.html";
