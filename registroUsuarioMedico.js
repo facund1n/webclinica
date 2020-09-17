@@ -25,7 +25,7 @@ class Paciente {
     this._user = user;
     this._nombre = nombre;
     this._password = password;
-    this._fechaNaciomiento = fechaNacimiento;
+    this._fechaNacimiento = fechaNacimiento;
     this._validado = validado;
   }
 
@@ -42,7 +42,7 @@ class Paciente {
     return this._password;
   }
   get fechaNacimiento() {
-    return this._fechaNaciomiento;
+    return this._fechaNacimiento;
   }
   get validado() {
     return this._validado;
