@@ -158,7 +158,7 @@ let creacionMedic = document
       if (verifPasswordMedic == true) {
         listadoMedico.push(medico);
 
-        localStorage.setItem("listadoMedico", JSON.stringify(listadoMedico));
+        localStorage.setItem("medicos", JSON.stringify(listadoMedico));
 
         alert("Bienvenido, un Administrador Validará su cuenta en breve...");
         window.open("http://127.0.0.1:5500/index.html", "_blank");
