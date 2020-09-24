@@ -21,66 +21,8 @@ document.getElementById("consulta").addEventListener("click", function (e) {
   listaPacienteLS = serializarPaciente;
   listadoPaciente = JSON.parse(listaPacienteLS);
 
-  for (i in listadoPaciente) {
-    document.write(listadoPaciente[i]);
-    /*     console.log(typeof localStorage.getItem("listado"));
-    document.write(localStorage.getItem("listado")); */
+  for (i of listadoPaciente) {
   }
-  e.preventDefault();
+
+  console.log(i._user), e.preventDefault();
 });
-
-class Paciente {
-  constructor(tipo, user, nombre, password, fechaNacimiento, validado) {
-    this._tipo = tipo;
-    this._user = user;
-    this._nombre = nombre;
-    this._password = password;
-    this._fechaNaciomiento = fechaNacimiento;
-    this._validado = validado;
-  }
-
-  get tipo() {
-    return this._tipo;
-  }
-  get user() {
-    return this._user;
-  }
-  get nombre() {
-    return this._nombre;
-  }
-  get password() {
-    return this._password;
-  }
-  get fechaNacimiento() {
-    return this._fechaNaciomiento;
-  }
-  get validado() {
-    return this._validado;
-  }
-}
-
-class Medico {
-  constructor(tipo, legajo, nombre, password, validado) {
-    this._tipo = tipo;
-    this._legajo = legajo;
-    this._nombre = nombre;
-    this._password = password;
-    this._validado = validado;
-  }
-
-  get tipo() {
-    return this._tipo;
-  }
-  get user() {
-    return this._legajo;
-  }
-  get nombre() {
-    return this._nombre;
-  }
-  get password() {
-    return this._password;
-  }
-  get validado() {
-    return this._validado;
-  }
-}

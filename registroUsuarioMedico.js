@@ -121,13 +121,10 @@ let creacionPaciente = document
       if (verifPassword == true && verifCheckbox == true) {
         listadoPaciente.push(paciente);
 
-        localStorage.setItem(
-          "listadoPaciente",
-          JSON.stringify(listadoPaciente)
-        );
+        localStorage.setItem("pacientes", JSON.stringify(listadoPaciente));
 
         alert("Bienvenido, un Administrador Validará su cuenta en breve...");
-        window.location = "http://127.0.0.1:5500/index.html";
+        window.open("http://127.0.0.1:5500/index.html", "_blank");
       }
     }
 
@@ -164,7 +161,7 @@ let creacionMedic = document
         localStorage.setItem("listadoMedico", JSON.stringify(listadoMedico));
 
         alert("Bienvenido, un Administrador Validará su cuenta en breve...");
-        window.location = "http://127.0.0.1:5500/index.html";
+        window.open("http://127.0.0.1:5500/index.html", "_blank");
       }
     }
 
