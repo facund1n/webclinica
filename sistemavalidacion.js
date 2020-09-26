@@ -16,14 +16,6 @@ document.getElementById("salir").addEventListener("click", function (e) {
   e.preventDefault();
 });
 
-class Paciente {
-  constructor(tipo, user, validado) {
-    this._tipo = tipo;
-    this._user = user;
-    this._validado = validado;
-  }
-}
-
 document.getElementById("consultaP").addEventListener("click", function (e) {
   let serializarPaciente = localStorage.getItem("pacientes");
   listaPacienteLS = serializarPaciente;
