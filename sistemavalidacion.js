@@ -16,71 +16,114 @@ document.getElementById("salir").addEventListener("click", function (e) {
   e.preventDefault();
 });
 
-document.getElementById("consulta").addEventListener("click", function (e) {
-  var serializarPaciente = localStorage.getItem("listadoPaciente");
+document.getElementById("consultaP").addEventListener("click", function (e) {
+  let serializarPaciente = localStorage.getItem("pacientes");
   listaPacienteLS = serializarPaciente;
-  listadoPaciente = JSON.parse(listaPacienteLS);
+  listadoPaciente = JSON.parse(serializarPaciente);
 
-  for (i in listadoPaciente) {
-    document.write(listadoPaciente[i]);
-    /*     console.log(typeof localStorage.getItem("listado"));
-    document.write(localStorage.getItem("listado")); */
+  if (localStorage.getItem("pacientes") != null) {
+    for (i of listadoPaciente) {
+      document.getElementById("div1").innerHTML = `<div class="card" style="">
+      <div class="card-body">
+      <h5 class="card-title">Tipo: ${i._tipo}</h5>
+      <h5 class="card-title">Nombre: ${i._nombre}</h5>
+      <h5 class="card-title">Usuario: ${i._user}</h5>
+      <h5 class="card-title">Validado: ${i._validado}</h5>
+      </div>
+    </div>`;
+    }
+  } else {
+    document.getElementById(
+      "div1"
+    ).innerHTML = `<button type="button" class="btn btn-danger col">
+    No hay Pacientes para validar
+    </button>`;
+  }
+
+  e.preventDefault();
+});
+
+document.getElementById("validar").addEventListener("click", function (e) {
+  let serializarPaciente = localStorage.getItem("pacientes");
+  listaPacienteLS = serializarPaciente;
+  listadoPaciente = JSON.parse(serializarPaciente);
+  if (localStorage.getItem("pacientes") != null) {
+    for (i of listadoPaciente) {
+      i._validado = true;
+      console.log(i);
+
+      localStorage.setItem("pacientesV", JSON.stringify(i));
+      localStorage.removeItem("pacientes");
+    }
+    document.getElementById(
+      "div1"
+    ).innerHTML = `<button type="button" class="btn btn-success col">se validó correctamente </button>`;
+  } else {
+    document.getElementById(
+      "div1"
+    ).innerHTML = `<button type="button" class="btn btn-success col">se validó correctamente </button>`;
+    document.getElementById(
+      "div1"
+    ).innerHTML = `<button type="button" class="btn btn-danger col">
+    No hay Pacientes para validar
+    </button>`;
+  }
+
+  e.preventDefault();
+});
+
+document.getElementById("consultaM").addEventListener("click", function (e) {
+  let serializarMedico = localStorage.getItem("medicos");
+  listaMedicoLS = serializarMedico;
+  listadoMedico = JSON.parse(listaMedicoLS);
+  if (localStorage.getItem("medicos") != null) {
+    for (y of listadoMedico) {
+      document.getElementById("div2").innerHTML = `<div class="card" style="">
+    <div class="card-body">
+    <h5 class="card-title">Tipo: ${y._tipo}</h5>
+    <h5 class="card-title">Nombre: ${y._nombre}</h5>
+    <h5 class="card-title">Legajo: ${y._legajo}</h5>
+    <h5 class="card-title">Validado:  ${y._validado}</h5>
+    </div>
+  </div>`;
+    }
+  } else {
+    document.getElementById(
+      "div2"
+    ).innerHTML = `<button type="button" class="btn btn-success col">se validó correctamente </button>`;
+    document.getElementById(
+      "div2"
+    ).innerHTML = `<button type="button" class="btn btn-danger col">
+  No hay Médicos para validar
+  </button>`;
   }
   e.preventDefault();
 });
 
-class Paciente {
-  constructor(tipo, user, nombre, password, fechaNacimiento, validado) {
-    this._tipo = tipo;
-    this._user = user;
-    this._nombre = nombre;
-    this._password = password;
-    this._fechaNaciomiento = fechaNacimiento;
-    this._validado = validado;
-  }
+document.getElementById("validar").addEventListener("click", function (e) {
+  let serializarMedico = localStorage.getItem("medicos");
+  listaMedicoLS = serializarMedico;
+  listadoMedico = JSON.parse(listaMedicoLS);
+  if (localStorage.getItem("medicos") != null) {
+    for (y of listadoMedico) {
+      y._validado = true;
+      console.log(y);
 
-  get tipo() {
-    return this._tipo;
+      localStorage.setItem("medicosV", JSON.stringify(y));
+      localStorage.removeItem("medicos");
+    }
+    document.getElementById(
+      "div2"
+    ).innerHTML = `<button type="button" class="btn btn-success col">se validó correctamente </button>`;
+  } else {
+    document.getElementById(
+      "div2"
+    ).innerHTML = `<button type="button" class="btn btn-success col">se validó correctamente </button>`;
+    document.getElementById(
+      "div2"
+    ).innerHTML = `<button type="button" class="btn btn-danger col">
+    No hay Médicos para validar
+    </button>`;
   }
-  get user() {
-    return this._user;
-  }
-  get nombre() {
-    return this._nombre;
-  }
-  get password() {
-    return this._password;
-  }
-  get fechaNacimiento() {
-    return this._fechaNaciomiento;
-  }
-  get validado() {
-    return this._validado;
-  }
-}
-
-class Medico {
-  constructor(tipo, legajo, nombre, password, validado) {
-    this._tipo = tipo;
-    this._legajo = legajo;
-    this._nombre = nombre;
-    this._password = password;
-    this._validado = validado;
-  }
-
-  get tipo() {
-    return this._tipo;
-  }
-  get user() {
-    return this._legajo;
-  }
-  get nombre() {
-    return this._nombre;
-  }
-  get password() {
-    return this._password;
-  }
-  get validado() {
-    return this._validado;
-  }
-}
+  e.preventDefault();
+});

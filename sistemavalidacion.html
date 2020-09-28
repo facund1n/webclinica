@@ -41,13 +41,29 @@
       </div>
     </nav>
     <!-- NAV BAR FIN -->
-    <div class="container p-2">
-      <p>Cuentas a validar:</p>
-      <button id="consulta" class="btn-lg btn-warning" type="submit">
-        Consultar
-      </button>
-      <div class="elementosConsulta"></div>
-      <button class="btn-lg btn-warning" type="submit">Validar</button>
+
+    <div class="container">
+      <div class="col">
+        <button id="consultaP" class="btn-lg btn-warning" type="submit">
+          Consultar Pacientes
+        </button>
+      </div>
+
+      <div id="div1"></div>
+
+      <div class="col">
+        <button id="consultaM" class="btn-lg btn-warning" type="submit">
+          Consultar Médicos
+        </button>
+      </div>
+
+      <div id="div2"></div>
+
+      <div class="col">
+        <button id="validar" class="btn-lg btn-warning col" type="submit">
+          Validar
+        </button>
+      </div>
     </div>
 
     <script src="./sistemavalidacion.js"></script>
