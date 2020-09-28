@@ -23,7 +23,8 @@ document.getElementById("consultaP").addEventListener("click", function (e) {
 
   if (localStorage.getItem("pacientes") != null) {
     for (i of listadoPaciente) {
-      document.getElementById("div1").innerHTML = `<div class="card" style="">
+      const elemento = document.createElement("div");
+      elemento.innerHTML /* document.getElementById("div1").innerHTML */ = `<div class="card" style="">
       <div class="card-body">
       <h5 class="card-title">Tipo: ${i._tipo}</h5>
       <h5 class="card-title">Nombre: ${i._nombre}</h5>
@@ -31,6 +32,7 @@ document.getElementById("consultaP").addEventListener("click", function (e) {
       <h5 class="card-title">Validado: ${i._validado}</h5>
       </div>
     </div>`;
+      document.getElementById("div1").appendChild(elemento);
     }
   } else {
     document.getElementById(
@@ -50,10 +52,7 @@ document.getElementById("validar").addEventListener("click", function (e) {
   if (localStorage.getItem("pacientes") != null) {
     for (i of listadoPaciente) {
       i._validado = true;
-      console.log(i);
-
-      localStorage.setItem("pacientesV", JSON.stringify(i));
-      localStorage.removeItem("pacientes");
+      localStorage.setItem("pacientes", JSON.stringify(listadoPaciente));
     }
     document.getElementById(
       "div1"
@@ -78,7 +77,8 @@ document.getElementById("consultaM").addEventListener("click", function (e) {
   listadoMedico = JSON.parse(listaMedicoLS);
   if (localStorage.getItem("medicos") != null) {
     for (y of listadoMedico) {
-      document.getElementById("div2").innerHTML = `<div class="card" style="">
+      const elemento2 = document.createElement("div");
+      elemento2.innerHTML = /* document.getElementById("div2").innerHTML  */ `<div class="card" style="">
     <div class="card-body">
     <h5 class="card-title">Tipo: ${y._tipo}</h5>
     <h5 class="card-title">Nombre: ${y._nombre}</h5>
@@ -86,6 +86,7 @@ document.getElementById("consultaM").addEventListener("click", function (e) {
     <h5 class="card-title">Validado:  ${y._validado}</h5>
     </div>
   </div>`;
+      document.getElementById("div2").appendChild(elemento2);
     }
   } else {
     document.getElementById(
@@ -107,10 +108,7 @@ document.getElementById("validar").addEventListener("click", function (e) {
   if (localStorage.getItem("medicos") != null) {
     for (y of listadoMedico) {
       y._validado = true;
-      console.log(y);
-
-      localStorage.setItem("medicosV", JSON.stringify(y));
-      localStorage.removeItem("medicos");
+      localStorage.setItem("medicos", JSON.stringify(listadoMedico));
     }
     document.getElementById(
       "div2"
