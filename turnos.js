@@ -1,4 +1,6 @@
 // Pacientes
+let listadoPacientes = [];
+
 class Pacientes {
   constructor(nombre, especialidad, medico, dia, hora, problematica) {
     this._nombre = nombre;
@@ -39,10 +41,12 @@ evento.addEventListener("submit", function (e) {
     problematica
   );
 
+  listadoPacientes.push(instanciaPaciente);
+
+  const jsonTurnos = JSON.stringify(listadoPacientes);
+  localStorage.setItem("listadoPacientes", jsonTurnos);
+
   confirmacionTurno();
 
   e.preventDefault();
 });
-
-// const jsonTurnos = JSON.stringify(instanciaPaciente);
-// localStorage.setItem("instanciaPaciente", jsonTurnos);
