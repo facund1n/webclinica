@@ -1,0 +1,156 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="author" content="grupo-6" />
+  <meta name="keywords" content="clinica, salud" />
+  <title>Mi Clínica</title>
+  <!-- Bootstrap core CSS -->
+  <link rel="stylesheet" href="./customcss/maincustom.css">
+  <link href="./customcss/panelmedicos.css" rel="stylesheet">
+  <link href="./bootstrap/css/bootstrap.min.css" rel="stylesheet">
+</head>
+
+<body class="body1">
+  <header>
+    <!-- NAV BAR INICIO -->
+    <nav class="navbar navbar-expand-lg navbar-dark color1 sticky-top">
+      <a class="navbar-brand" href="#"></a>
+      <img src="./img index/logo.png" class="m-2" width="180px" height="30px" />
+
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#sidebarMenu"
+        aria-controls="sidebarMenu" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="sidebarMenu">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item active">
+            <a class="nav-link" href="#">INICIO<span class="sr-only">(current)</span></a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+  </header>
+  <!-- NAV BAR Fin -->
+
+  <div class="container-fluid">
+    <div class="row">
+      <!-- Sidebar Inicio-->
+      <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-light collapse">
+        <div>
+          <ul class="nav flex-column">
+            <li class="nav-item">
+              <a class="nav-link active">
+                Dr <span class="sr-only">(current)</span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#" id="perfil">
+                Perfil
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#" id="turnos">
+                Turnos
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">
+                Salir
+              </a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+      <!-- SideBar Fin -->
+
+      <!-- Panel Perfil Inicio -->
+      <div class="col-md-9 ml-sm-auto col-lg-10 px-md-4" id="panelperfil">
+        <h1>Dr Apellido</h1>
+
+        <ul class="nav flex-column">
+          <li class="nav-item">
+            Nombre:
+          </li>
+          <li class="nav-item">
+            Legajo:
+          </li>
+        </ul>
+      </div>
+      <!-- Panel Perfil Fin -->
+
+      <!-- Panel Turnos Inicio -->
+      <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-md-4" id="panelturnos">
+        <h2>Turnos</h2>
+        <div class="table-responsive">
+          <table class="table table-striped table-sm" id="tabla">
+            <thead>
+              <tr>
+                <th>Paciente</th>
+                <th>Fecha</th>
+                <th>Horario</th>
+                <th>Problematica</th>
+              </tr>
+            </thead>
+          </table>
+        </div>
+      </main>
+      <!-- Panel Turnos Fin -->
+    </div>
+  </div>
+
+  <!-- FOOTER INICIO -->
+  <footer>
+    <div class="container">
+      <div class="row">
+        <img class="p-4 m-auto" src="./img index/logofooter.png" />
+
+        <p class="p-4 lead text-white text-center m-auto">
+          Instituto Técnico Para La Acreditación De Instituciones De Salud
+        </p>
+
+        <p class="p-4 lead text-white text-center m-auto" href="#">
+          Todos los derechos reservados | Grupo-6
+        </p>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="d-flex justify-content-center">
+        <div class="p-4 m-auto">
+          <a href="#"><img src="./img index/fb.png" width="40px" /></a>
+          <a href="#"><img src="./img index/insta.png" width="40px" /></a>
+          <a href="#"><img src="./img index/twitter.png" width="40px" /></a>
+        </div>
+      </div>
+    </div>
+  </footer>
+  <!-- FOOTER FIN -->
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+    integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+    crossorigin="anonymous"></script>
+  <script src="./bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="./js/panelMedico.js"></script>
+  <script>
+
+    window.document.getElementById("panelturnos").style.display = "none"
+
+    document
+      .getElementById("perfil")
+      .addEventListener("click", function (e) {
+        document.getElementById("panelperfil").style.display = "block";
+        document.getElementById("panelturnos").style.display = "none";
+      });
+    document
+      .getElementById("turnos")
+      .addEventListener("click", function (e) {
+        document.getElementById("panelturnos").style.display = "block";
+        document.getElementById("panelperfil").style.display = "none";
+      });
+  </script>
+</body>
+
+</html>
