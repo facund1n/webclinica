@@ -1,3 +1,10 @@
+function verifLogin() {
+  if (localStorage.getItem("patientLogIn") == false) {
+    alert("Debe inciar sesión.");
+    window.location = "http://127.0.0.1:5500/login.html";
+  }
+}
+verifLogin();
 // Pacientes
 let listadoPacientes = [];
 

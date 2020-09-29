@@ -55,10 +55,12 @@ var creacionPaciente = document
     listaPacienteLS = serializarPaciente;
     listadoPaciente = JSON.parse(serializarPaciente);
 
-    if (localStorage.getItem("medicosV") != null) {
+    if (localStorage.getItem("pacientesV") != null) {
       for (i of listadoPaciente) {
         if (i._user == user && i._password == password && i._validado == true) {
           alert("bienvenido: " + i._nombre);
+          localStorage.setItem("patientLogIn", true);
+          window.location = "http://127.0.0.1:5500/turnos.html";
         }
       }
     } else {
@@ -87,6 +89,9 @@ var creacionMedico = document
           y._validado == true
         ) {
           alert("bienvenido: " + y._nombre);
+          localStorage.setItem("medicLogIn", true);
+
+          /* window.location = "http://127.0.0.1:5500/turnos.html"; */ // reemplar por turnos de médico cuando este lista
         }
       }
     } else {
