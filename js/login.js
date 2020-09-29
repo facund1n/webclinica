@@ -1,5 +1,14 @@
 console.log("estoy en LOGIN Usuario y Medico");
 
+function verifLogin() {
+  var clave1 = localStorage.getItem("patientLogIn");
+  clave2 = JSON.parse(clave1);
+  if (clave2 == true) {
+    window.location = "http://127.0.0.1:5500/turnos.html";
+  }
+}
+verifLogin();
+
 window.document.getElementById("formVerde").style.display = "none";
 
 document
