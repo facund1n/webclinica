@@ -1,5 +1,14 @@
 console.log("estoy en LOGIN Usuario y Medico");
 
+function verifLogin() {
+  var clave1 = localStorage.getItem("patientLogIn");
+  clave2 = JSON.parse(clave1);
+  if (clave2 == true) {
+    window.location = "http://127.0.0.1:5500/turnos.html";
+  }
+}
+verifLogin();
+
 window.document.getElementById("formVerde").style.display = "none";
 
 document
@@ -49,16 +58,24 @@ var creacionPaciente = document
   .addEventListener("submit", function (e) {
     var user = document.getElementById("userPatient").value;
     password = document.getElementById("patientPassword").value;
-    paciente = new Usuario(user, password);
+    paciente = new Paciente(user, password);
 
-    let serializarPaciente = localStorage.getItem("pacientes");
+    let serializarPaciente = localStorage.getItem("pacientesV");
+    listaPacienteLS = serializarPaciente;
     listadoPaciente = JSON.parse(serializarPaciente);
 
-    for (i of listadoPaciente) {
-      if (i._user == user && i._password == password && i._validado == true) {
-        console.log("INICIO SESION");
+    if (localStorage.getItem("pacientesV") != null) {
+      for (i of listadoPaciente) {
+        if (i._user == user && i._password == password && i._validado == true) {
+          alert("bienvenido: " + i._nombre);
+          localStorage.setItem("patientLogIn", true);
+          window.location = "http://127.0.0.1:5500/turnos.html";
+        }
       }
+    } else {
+      alert("No hay usuarios registrados");
     }
+
     e.preventDefault();
   });
 
@@ -67,26 +84,28 @@ var creacionMedico = document
   .addEventListener("submit", function (e) {
     var legajo = document.getElementById("legajo").value;
     password = document.getElementById("medicPassword").value;
-    paciente = new Medico(legajo, password);
+    medico = new Medico(legajo, password);
 
-    let serializarMedico = localStorage.getItem("medicos");
+    let serializarMedico = localStorage.getItem("medicosV");
+    listaMedicoLS = serializarMedico;
     listadoMedico = JSON.parse(serializarMedico);
 
-    for (y of listadoMedico) {
-      if (
-        y._legajo == legajo &&
-        y._password == password &&
-        y._validado == true
-      ) {
-        console.log("INICIO SESION");
+    if (localStorage.getItem("medicosV") != null) {
+      for (y of listadoMedico) {
+        if (
+          y._legajo == legajo &&
+          y._password == password &&
+          y._validado == true
+        ) {
+          alert("bienvenido: " + y._nombre);
+          localStorage.setItem("medicLogIn", true);
+
+          /* window.location = "http://127.0.0.1:5500/turnos.html"; */ // reemplar por turnos de médico cuando este lista
+        }
       }
+    } else {
+      alert("No hay médicos registrados");
     }
+
     e.preventDefault();
   });
-
-/* document.getElementById("formPatient").addEventListener("submit", function (e) {
-  e.preventDefault();
-}); */
-
-// fmétodo de validacion if user == user && password && password - set validacion undefined true
-// if validacion true && validacion true mandar a Turnos

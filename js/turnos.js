@@ -1,3 +1,22 @@
+// Condición para saber si Inició sesión o NO.
+function verifLogin() {
+  var clave1 = localStorage.getItem("patientLogIn");
+  clave2 = JSON.parse(clave1);
+  if (clave2 == false || clave1 == null) {
+    alert("Debe inciar sesión.");
+    window.location = "http://127.0.0.1:5500/login.html";
+  }
+}
+verifLogin();
+
+// Condición para cerrar sesión:
+
+document.getElementById("salir").addEventListener("click", function (e) {
+  localStorage.setItem("patientLogIn", false);
+  window.location = "http://127.0.0.1:5500/index.html";
+  e.preventDefault();
+});
+
 // Pacientes
 let listadoPacientes = [];
 
