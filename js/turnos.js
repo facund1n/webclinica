@@ -10,7 +10,6 @@ function verifLogin() {
 verifLogin();
 
 // Condición para cerrar sesión:
-
 document.getElementById("salir").addEventListener("click", function (e) {
   localStorage.setItem("patientLogIn", false);
   window.location = "http://127.0.0.1:5500/index.html";
@@ -149,3 +148,10 @@ document.getElementById("misTurnos").addEventListener("click", function (e) {
   }
   e.preventDefault();
 });
+
+var div = document.getElementById("div");
+var elemento1 = document.createElement("div");
+elemento1.innerHTML = `
+
+<h3 class="p-2">Paciente ${localStorage.getItem("userName")}</h3>`;
+div.appendChild(elemento1);
