@@ -47,73 +47,42 @@
     </nav>
 
     <!-- NAV BAR Fin -->
-
-    <div class="container-fluid">
-      <div class="row">
-        <!-- Sidebar Inicio-->
-        <nav
-          id="sidebarMenu"
-          class="col-md-3 col-lg-2 d-md-block bg-light collapse"
-        >
-          <div>
-            <ul class="nav flex-column">
-              <li class="nav-item">
-                <a class="nav-link" href="#" id="perfil"> Perfil </a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#" id="turnos"> Turnos </a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#"> Salir </a>
-              </li>
-            </ul>
-          </div>
-        </nav>
-        <!-- SideBar Fin -->
-
-        <!-- Panel Perfil Inicio -->
-        <div class="col-md-9 ml-sm-auto col-lg-10 px-md-4" id="panelperfil">
-          <div id="divNombre"></div>
+    <main>
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col" id="divNombre"></div>
         </div>
-        <!-- Panel Perfil Fin -->
-
-        <!-- Panel Turnos Inicio -->
-        <main
-          role="main"
-          class="col-md-9 ml-sm-auto col-lg-10 px-md-4"
-          id="panelturnos"
-        >
-          <div class="container">
-            <div class="row">
-              <h2>Turnos</h2>
-              <div class="col-sm p-1">
-                <select class="form-control" id="filtro">
-                  <option selected>Seleccione:</option>
-                  <option value="Cardiología">Cardiología</option>
-                  <option value="Pediatría">Pediatría</option>
-                  <option value="Salud de la Mujer">Salud de la Mujer</option>
-                  <option value="Dermatología">Dermatología</option>
-                </select>
-              </div>
-              <div class="table-responsive">
-                <table class="table table-striped table-sm" id="tabla">
-                  <thead>
-                    <tr>
-                      <th>Paciente</th>
-                      <th>Fecha</th>
-                      <th>Horario</th>
-                      <th>Problematica</th>
-                      <th>Especialidad</th>
-                    </tr>
-                  </thead>
-                </table>
-              </div>
-            </div>
+        <h2>Turnos</h2>
+        <div class="row">
+          <div class="col p-2">
+            <select class="form-control" id="filtro">
+              <option selected>Seleccione:</option>
+              <option value="Cardiología">Cardiología</option>
+              <option value="Pediatría">Pediatría</option>
+              <option value="Salud de la Mujer">Salud de la Mujer</option>
+              <option value="Dermatología">Dermatología</option>
+            </select>
           </div>
-        </main>
-        <!-- Panel Turnos Fin -->
+
+          <table class="table table-striped">
+            <thead>
+              <tr>
+                <th scope="col">Paciente</th>
+                <th scope="col">Fecha</th>
+                <th scope="col">Horario</th>
+                <th scope="col">Problematica</th>
+                <th scope="col">Especialidad</th>
+              </tr>
+            </thead>
+            <tbody id="div"></tbody>
+          </table>
+        </div>
       </div>
-    </div>
+      <button class="btn btn-success m-2" id="refresh">Limpiar</button>
+    </main>
+
+    <!-- Panel Turnos Fin -->
+
     <script
       src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
       integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"

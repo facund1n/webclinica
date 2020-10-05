@@ -171,3 +171,8 @@ document.getElementById("validar").addEventListener("click", function (e) {
     alert("Validado Correctamente");
   }
 });
+
+document.getElementById("refresh").addEventListener("click", function (e) {
+  location.reload();
+  e.preventDefault();
+});
