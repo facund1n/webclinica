@@ -10,10 +10,16 @@
   background-color: rgba(55, 156, 210, 10%);
   border-radius: 10px;
   padding: 10px;
+  box-shadow: 1px 1px 3px;
 }
 
 .fondoFormmedic {
   background-color: rgba(55, 210, 89, 0.1);
   border-radius: 10px;
   padding: 10px;
+  box-shadow: 1px 1px 3px;
+}
+
+.body1 {
+  background-image: url("https://cavespringvet.com/wp-content/uploads/2017/12/background.png");
 }

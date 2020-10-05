@@ -29,6 +29,16 @@
           >Cerrar sesión</a
         >
       </nav>
+      <div class="container p-1">
+        <div class="col fondoForm">
+          <h5><strong>La atención es por orden de llegada.</strong></h5>
+          <p>Turno mañana a partir <strong>de las 8:00 a 12:00</strong></p>
+          <p>Turno tarde a partir <strong>de las 16:00 a 20:00</strong></p>
+          <p>
+            Deberá presentar<strong>DNI o Credencial de Obra Social</strong>
+          </p>
+        </div>
+      </div>
 
       <div class="container fondoForm p-5 my-2">
         <div class="row">
@@ -36,20 +46,16 @@
             <p class="display-4">Pide tu turno:</p>
             <form id="formulario">
               <div class="form-group">
-                <label for="userName">Ingrese Nombre y Apellido:</label>
-                <input type="text" class="form-control" id="nombre" required />
-              </div>
-
-              <div class="form-group">
                 <label for="especialidad">Seleccione Especialidad:</label>
                 <select
                   class="form-control"
                   name="especialidad"
                   id="especialidad"
                 >
-                  <option value="">Cardiología</option>
-                  <option value="">Pediatría</option>
-                  <option value="">Dermatología</option>
+                  <option>Cardiología</option>
+                  <option>Pediatría</option>
+                  <option>Salud de la Mujer</option>
+                  <option>Dermatología</option>
                 </select>
               </div>
 
@@ -68,8 +74,11 @@
               </div>
 
               <div class="form-group">
-                <label for="horarioTurno">Seleccione Horario: </label>
-                <input class="form-control" type="time" id="hora" />
+                <label for="horarioTurno">Seleccione Turno:</label>
+                <select class="form-control" name="medico" id="turno">
+                  <option value="mañana">Mañana</option>
+                  <option value="tarde">Tarde</option>
+                </select>
               </div>
 
               <div class="form-group">
@@ -87,11 +96,13 @@
                 Pedir Turno
               </button>
             </form>
-            <div id="detalle-turnos"></div>
+            <div id="miMensaje"></div>
+            <div id="lista"></div>
           </div>
         </div>
       </div>
     </div>
+
     <script src="./js/turnos.js"></script>
     <!-- REQUERIDO POR BOOTSTRAP -->
     <script
