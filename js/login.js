@@ -100,7 +100,7 @@ var creacionMedico = document
         ) {
           alert("bienvenido: " + y._nombre);
           localStorage.setItem("medicLogIn", true);
-
+          localStorage.setItem("medicName", y._nombre);
           window.location = "http://127.0.0.1:5500/panelmedicos.html"; // reemplar por turnos de médico cuando este lista
         }
       }
