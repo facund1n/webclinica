@@ -16,8 +16,13 @@ document
     document.getElementById("formVerde").style.display = "none";
   });
 
-var listadoPaciente = [];
-var listadoMedico = [];
+let listadoPaciente = localStorage.getItem("pacientes")
+  ? JSON.parse(localStorage.getItem("pacientes"))
+  : [];
+
+let listadoMedico = localStorage.getItem("medicos")
+  ? JSON.parse(localStorage.getItem("medicos"))
+  : [];
 
 class Paciente {
   constructor(tipo, user, nombre, password, fechaNacimiento, validado) {
@@ -120,11 +125,11 @@ let creacionPaciente = document
     function agregarAlocalStorage() {
       if (verifPassword == true && verifCheckbox == true) {
         listadoPaciente.push(paciente);
-
         localStorage.setItem("pacientes", JSON.stringify(listadoPaciente));
+        const dataP = JSON.parse(localStorage.getItem("pacientes"));
 
         alert("Bienvenido, un Administrador Validará su cuenta en breve...");
-        window.open("http://127.0.0.1:5500/index.html", "_blank");
+        window.location = "http://127.0.0.1:5500/index.html";
       }
     }
 
@@ -159,9 +164,9 @@ let creacionMedic = document
         listadoMedico.push(medico);
 
         localStorage.setItem("medicos", JSON.stringify(listadoMedico));
-
+        const dataM = JSON.parse(localStorage.getItem("medicos"));
         alert("Bienvenido, un Administrador Validará su cuenta en breve...");
-        window.open("http://127.0.0.1:5500/index.html", "_blank");
+        window.location = "http://127.0.0.1:5500/index.html";
       }
     }
 

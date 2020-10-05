@@ -69,6 +69,7 @@ var creacionPaciente = document
         if (i._user == user && i._password == password && i._validado == true) {
           alert("bienvenido: " + i._nombre);
           localStorage.setItem("patientLogIn", true);
+          localStorage.setItem("userName", i._nombre);
           window.location = "http://127.0.0.1:5500/turnos.html";
         }
       }
@@ -100,7 +101,7 @@ var creacionMedico = document
           alert("bienvenido: " + y._nombre);
           localStorage.setItem("medicLogIn", true);
 
-          /* window.location = "http://127.0.0.1:5500/turnos.html"; */ // reemplar por turnos de médico cuando este lista
+          window.location = "http://127.0.0.1:5500/panelmedicos.html"; // reemplar por turnos de médico cuando este lista
         }
       }
     } else {

@@ -18,9 +18,11 @@ document.getElementById("salir").addEventListener("click", function (e) {
 });
 
 // Pacientes
-let listadoPacientes = [];
+let turnosLista = localStorage.getItem("turnos")
+  ? JSON.parse(localStorage.getItem("turnos"))
+  : [];
 
-class Pacientes {
+class Turno {
   constructor(nombre, especialidad, medico, dia, hora, problematica) {
     this._nombre = nombre;
     this._especialidad = especialidad;
@@ -31,41 +33,94 @@ class Pacientes {
   }
 }
 
-function confirmacionTurno() {
-  const idTurnos = document.getElementById("detalle-turnos");
-  const elemento = document.createElement("div");
-  elemento.innerHTML = `
-        <div class="alert alert-success" role="alert">
-        Turno Confirmado con éxito!
+class Lista {
+  constructor() {
+    this._lista = [];
+  }
+  get lista() {
+    return this._lista;
+  }
+  agregar(turno) {
+    this._lista.push(turno);
+  }
+}
+class Vista {
+  agregarTurno(turno) {
+    const idTurnos = document.getElementById("lista");
+    const elemento = document.createElement("div");
+    elemento.innerHTML = `
+      <div class="alert alert-success" role="alert">
+        <p>Especialidad: ${turno._especialidad}</p>
+        <p>Médico: ${turno._medico}</p>
+        <p>Día: ${turno._dia}</p>
+        <p>Horario: ${turno._hora}</p>
+        <p>Problemática: ${turno._problematica}</p>
+        
       </div>
       `;
-  idTurnos.appendChild(elemento);
+    idTurnos.appendChild(elemento);
+  }
+  // <a href="#" class="btn btn-danger btn-block" name="Eliminar" >Eliminar</a> INSERTAR EN LÍNEA 58 SI SE SOLUCIONA EL METODO PARA ELIMINAR EL ULTIMO KEY DEL ARRAY EN LS
+
+  mostrarMensaje(mensaje, clase) {
+    const div = document.createElement("div");
+    div.className = clase;
+    div.appendChild(document.createTextNode(mensaje));
+    const divMensaje = document.getElementById("miMensaje");
+    divMensaje.appendChild(div);
+
+    setTimeout(function () {
+      document.getElementsByClassName("alert")[0].remove();
+    }, 3000);
+  }
+
+  /*   eliminarTurno(elemento) {
+    elemento.target.parentElement.remove();
+    var turnosLS = localStorage.getItem("turnos");
+    var arrelegoTurnos = JSON.parse(turnosLS);
+    for (var d = 0; d < arrelegoTurnos.length; d++) {
+      localStorage.removeItem("turnos");
+    }
+    arrelegoTurnos.pop();
+
+    localStorage.setItem("turnos", JSON.stringify(arrelegoTurnos));
+  } */
+}
+
+const vista = new Vista();
+const listaTurno = new Lista();
+
+for (l of listaTurno.lista) {
+  vista.agregarTurno(turno);
+}
+
+var pacientesV = localStorage.getItem("pacientesV");
+pacientesParse = JSON.parse(pacientesV);
+for (x of pacientesParse) {
 }
 
 const evento = document.getElementById("formulario");
 evento.addEventListener("submit", function (e) {
-  const nombre = document.getElementById("nombre").value,
+  let nombre = localStorage.getItem("userName"),
     especialidad = document.getElementById("especialidad").value,
     medico = document.getElementById("medico").value,
     dia = document.getElementById("dia").value,
-    hora = document.getElementById("hora").value,
+    hora = document.getElementById("turno").value,
     problematica = document.getElementById("problematica").value;
 
-  const instanciaPaciente = new Pacientes(
-    nombre,
-    especialidad,
-    medico,
-    dia,
-    hora,
-    problematica
-  );
+  turno = new Turno(nombre, especialidad, medico, dia, hora, problematica);
 
-  listadoPacientes.push(instanciaPaciente);
+  turnosLista.push(turno);
+  localStorage.setItem("turnos", JSON.stringify(turnosLista));
+  let dataT = JSON.parse(localStorage.getItem("turnos"));
 
-  const jsonTurnos = JSON.stringify(listadoPacientes);
-  localStorage.setItem("listadoPacientes", jsonTurnos);
-
-  confirmacionTurno();
-
+  vista.mostrarMensaje("Turno Cargado", "alert alert-success");
+  vista.agregarTurno(turno);
   e.preventDefault();
+});
+
+document.getElementById("lista").addEventListener("click", function (e) {
+  const vista = new Vista();
+  vista.mostrarMensaje("Turno eliminado", "alert alert-danger");
+  /*  vista.eliminarTurno(e); */
 });
