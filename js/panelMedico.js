@@ -39,7 +39,6 @@ document.getElementById("filtro").addEventListener("change", function (e) {
   var arrayTurnos = JSON.parse(localStorage.getItem("turnos"));
   for (d of arrayTurnos) {
     if (d._especialidad == user) {
-      const idTurnosCargados = document.getElementById("consultaTurnos");
       const elemento = document.createElement("div");
       elemento.innerHTML = `
       <div class="alert alert-success" role="alert">
@@ -51,8 +50,6 @@ document.getElementById("filtro").addEventListener("change", function (e) {
         
       </div>
       `;
-      idTurnosCargados.appendChild(elemento);
-      /* arrPorID = arrayTurnos.filter(filtrarPorID); */
     }
   }
   e.preventDefault();
