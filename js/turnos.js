@@ -121,7 +121,7 @@ evento.addEventListener("submit", function (e) {
 /* document.getElementById("lista").addEventListener("click", function (e) {
   const vista = new Vista();
   vista.mostrarMensaje("Turno eliminado", "alert alert-danger");
-  vista.eliminarTurno(e); 
+    vista.eliminarTurno(e);
 }); */
 
 document.getElementById("misTurnos").addEventListener("click", function (e) {
