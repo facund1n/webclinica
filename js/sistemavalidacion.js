@@ -3,7 +3,7 @@ console.log("Estoy en el sistema de validación");
 function verifLogin() {
   var clave = localStorage.getItem("adminLogOn");
   var clave2 = JSON.parse(clave);
-  if (clave2 == false) {
+  if (clave2 == false || clave2 == null) {
     alert("debe iniciar sesión");
     window.location = "http://127.0.0.1:5500/admin.html";
   }
